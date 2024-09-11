@@ -4,7 +4,7 @@ const validatePassword = (password) => {
     );
 
     if (!re.test(password)) {
-        const error =  new Error('INVALID_USER');
+        const error = new Error('INVALID_USER');
         error.statusCode = 400;
         throw error;
     };

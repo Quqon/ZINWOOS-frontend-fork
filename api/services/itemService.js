@@ -1,25 +1,37 @@
-const { itemDao } = require('../models');
+const itemRepository = require('../repositories/itemRepository');
 
-const getAll = async ( sort, order, limit, offset) => {
-    return await itemDao.getAll( sort, order, limit, offset );
+const getAll = async (sort, order, limit, offset) => {
+    return await itemRepository.getAll(sort, order, limit, offset);
 }
 
-const getMainList = async ( main_category_id, sort, order, limit, offset) => {
-    return await itemDao.getMainList( main_category_id, sort, order, limit, offset );
+const getMainList = async (main_category_id, sort, order, limit, offset) => {
+    const result = await itemRepository.getMainList(main_category_id, sort, order, limit, offset);
+    return result;
 }
 
-const getSubList = async ( sub_category_id, sort, order, limit, offset) => {
-    return await itemDao.getSubList( sub_category_id,sort, order, limit, offset);
+const getSubList = async (sub_category_id, sort, order, limit, offset) => {
+    const result = await itemRepository.getSubList(sub_category_id, sort, order, limit, offset);
+    return result;
 }
 
 const getNewList = async () => {
-    const data = await itemDao.getNewList();
+    const data = await itemRepository.getNewList();
     return data;
 }
 
 const getItemById = async (itemId) => {
-    const item = await itemDao.readItem(itemId);
+    const item = await itemRepository.readItem(itemId);
     return item;
+}
+
+const deleteItem = async (itemName) => {
+    const result = await itemRepository.deleteItem(itemName);
+    return result;
+}
+
+const updateItem = async (updateItemName, name, description, price, detail, max_amount, stock) => {
+    const result = await itemRepository.updateItem(updateItemName, name, description, price, detail, max_amount, stock);
+    return result;
 }
 
 module.exports = {
@@ -27,5 +39,7 @@ module.exports = {
     getNewList,
     getSubList,
     getMainList,
-    getAll
+    getAll,
+    deleteItem,
+    updateItem
 }

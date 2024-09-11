@@ -1,8 +1,27 @@
+require('dotenv').config();
+
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const { userDao } = require('../models');
+const userRepository = require('../repositories/userRepository')
 const validator = require('../utils/validator')
+
+const generateAccessToken = (user) => {
+    return jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, {
+        algorithm: process.env.ALGORITHM,
+        expiresIn: process.env.JWT_EXPIRES_IN
+    })
+}
+
+const generateAdminAccessToken = (user) => {
+    if (user.role === 'admin') {
+        return jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, {
+            algorithm: process.env.ALGORITHM,
+            expiresIn: process.env.JWT_EXPIRES_IN
+        })
+    }
+    return null
+}
 
 const hashPassword = async (password) => {
     const saltRound = 10;
@@ -12,7 +31,7 @@ const hashPassword = async (password) => {
 }
 
 const getUserById = async (id) => {
-    const result = await userDao.getUserById(id)
+    const result = await userRepository.getUserById(id)
 
     return result;
 }
@@ -21,7 +40,7 @@ const signUp = async (name, email, password, address, phoneNumber) => {
     validator.validateEmail(email);
     validator.validatePassword(password);
 
-    const checkOverlap = await userDao.getUserByEmail(email)
+    const checkOverlap = await userRepository.getUserByEmail(email)
 
     if (checkOverlap) {
         const error = new Error('INVALID_USER')
@@ -31,11 +50,11 @@ const signUp = async (name, email, password, address, phoneNumber) => {
 
     const hashedPassword = await hashPassword(password);
 
-    return await userDao.createUser(name, email, hashedPassword, address, phoneNumber)
+    return await userRepository.createUser(name, email, hashedPassword, address, phoneNumber)
 }
 
 const signIn = async (email, password) => {
-    const user = await userDao.getUserByEmail(email);
+    const user = await userRepository.getUserByEmail(email);
 
     if (!user) {
         const error = new Error('INVALID_USER');
@@ -51,19 +70,30 @@ const signIn = async (email, password) => {
         throw error;
     }
 
-    const accessToken = jwt.sign({ id : user.id }, process.env.JWT_SECRET,
-        {
-            algorithm: process.env.ALGORITHM,
-            expiresIn: process.env.JWT_EXPIRES_IN
-        }
-    );
+    const accessToken = generateAccessToken(user);
+    const adminAccessToken = generateAdminAccessToken(user);
 
-    return accessToken;
+    const tokens = {
+        accessToken,
+        ...(adminAccessToken && { adminAccessToken })
+    }
+
+    return tokens;
+}
+
+const getAdmin = token => {
+    try {
+        const decodedPayload = jwt.verify(token, process.env.JWT_SECRET);
+        return decodedPayload;
+    } catch (err) {
+        throw new Error('Invalid token');
+    }
 }
 
 
 module.exports = {
     signUp,
     signIn,
-    getUserById
+    getUserById,
+    getAdmin
 }

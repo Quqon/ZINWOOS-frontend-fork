@@ -5,3 +5,4 @@ schema.sql
 .DS_Store
 api/.DS_Store
 api/services/.DS_Store
+.db/

@@ -8,61 +8,78 @@ const getAll = asyncWrap(async (req, res) => {
     limit = limit || 50
     offset = offset || 0
 
-    if(limit > 100) {
+    if (limit > 100) {
         throw new Error("Too Many Datas");
     }
 
-    const data = await itemService.getAll( sort, order, +limit, +offset );
+    const data = await itemService.getAll(sort, order, +limit, +offset);
 
     return res.status(200).json({ data });
 })
 
 const getMainList = asyncWrap(async (req, res) => {
-    const { main_category_id, sort, order, limit, offset } = req.query
+    const { main_category_id, sort, order, limit, offset } = req.query;
 
-    if(limit > 100) {
+    if (limit > 100) {
         throw new Error("Too Many Datas");
     }
 
-    const data = await itemService.getMainList( main_category_id, sort, order, +limit, +offset );
+    const data = await itemService.getMainList(main_category_id, sort, order, +limit, +offset);
 
     return res.status(200).json({ data });
 })
 
 const getSubList = asyncWrap(async (req, res) => {
-    const { sub_category_id, sort, order, limit, offset} = req.query
+    const { sub_category_id, sort, order, limit, offset } = req.query
 
-    if(limit > 100) {
+    if (limit > 100) {
         throw new Error("Too Many Datas");
     }
 
-    const data = await itemService.getSubList( sub_category_id, sort, order, +limit, +offset );
+    const data = await itemService.getSubList(sub_category_id, sort, order, +limit, +offset);
 
     return res.status(200).json({ data });
 })
 
-const getNewList = asyncWrap(async (req,res) => {
+const getNewList = asyncWrap(async (req, res) => {
     const data = await itemService.getNewList();
 
-    return res.status(200).json({data});
-}) 
+    return res.status(200).json({ data });
+})
 
 const getItemById = asyncWrap(async (req, res) => {
-    const itemId = req.params.itemId;
+    const itemId = req.params.id;
+    const { sort, order } = req.query;
 
     if (!itemId) {
-        return res.status(400).json({ message : 'KEY_ERROR' });
+        return res.status(400).json({ message: 'KEY_ERROR' });
     }
-    
-    const item = await itemService.getItemById(itemId);
-    return res.status(200).json({ data : item });
 
+    const item = await itemService.getItemById(itemId);
+    return res.status(200).json({ data: item });
 });
+
+const deleteItem = asyncWrap(async (req, res) => {
+    const itemName = req.params.itemName;
+
+    const result = await itemService.deleteItem(itemName);
+    return res.status(201).json({ message: "Item deleted success" });
+})
+
+const updateItem = asyncWrap(async (req, res) => {
+    const updateItemName = req.params.updateItem;
+    const { name, description, price, detail, max_amount, stock } = req.body;
+
+    const result = await itemService.updateItem(updateItemName, name, description, price, detail, max_amount, stock);
+    return res.status(201).json({ message: "Item update success" });
+})
 
 module.exports = {
     getItemById,
     getSubList,
     getNewList,
     getMainList,
-    getAll
+    getAll,
+    deleteItem,
+    updateItem
 }

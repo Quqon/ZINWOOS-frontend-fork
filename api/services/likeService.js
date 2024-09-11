@@ -1,17 +1,17 @@
-const { likeDao } = require('../models');
+const likeRepository = require('../repositories/likeRepository');
 
 const getLikes = async (userId) => {
-  return await likeDao.getLikes(userId);
+  return await likeRepository.getLikes(userId);
 }
 
 
 const addLikes = async (itemId, userId) => {
-  return await likeDao.addLikes(itemId, userId);
+  return await likeRepository.addLikes(itemId, userId);
 }
 
 
 const deleteLikes = async (itemId, userId) => {
-  return await likeDao.deleteLikes(itemId, userId);
+  return await likeRepository.deleteLikes(itemId, userId);
 }
 
 

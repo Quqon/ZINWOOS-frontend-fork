@@ -1,5 +1,4 @@
-
-const express  = require('express');
+const express = require('express');
 const { itemController } = require('../controllers');
 const itemRouter = express.Router();
 
@@ -7,7 +6,8 @@ itemRouter.get('/main', itemController.getMainList);
 itemRouter.get('/sub', itemController.getSubList);
 itemRouter.get('/new', itemController.getNewList);
 itemRouter.get('/all', itemController.getAll);
-itemRouter.get('/:itemId', itemController.getItemById);
-
+itemRouter.get('/:id', itemController.getItemById);
+itemRouter.delete('/:itemName', itemController.deleteItem);
+itemRouter.put('/:update', itemController.updateItem);
 
 module.exports = itemRouter;
