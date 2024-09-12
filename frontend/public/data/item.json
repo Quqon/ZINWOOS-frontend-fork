@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "main_category_name": "ZINWOOSItems",
+      "sub_category_name": "의류/잡화",
+      "name": "NikeDunkLowPolaroid",
+      "description": "무지개처럼 보이는 3중 레이어 스우시가 포인트(나이키 DRAW에 당첨된 새 상품)",
+      "price": "150000.00000",
+      "detail": "농구에서부터 스케이트보딩까지 나이키 덩크의 영향력은 압도적입니다. 1985년에 농구화로 출시되었지만 평평하고 그립력이 뛰어난 밑창 덕분에 소외된 스포츠 커뮤니티인 스케이트보더들에게도 완벽한 신발이었습니다. 기능만큼이나 창조성을 갈망하는 서브컬처를 수면 위로 끌어올린 덩크는 수십 년간 수많은 컬러웨이를 선보이며 전세계 스케이트보더들의 마음을 사로잡았습니다.",
+      "detail_image": "https://github.com/ChoiRamsey/zinwoos/blob/main/MODIFY-ZINWOOS-PHOTO/main)hanjungphoca1.png?raw=true",
+      "option_name": "친필 사인 추가",
+      "option_price": "30000.00000",
+      "image_url": [
+        "https://github.com/ChoiRamsey/zinwoos/blob/main/nikedunk4.jpeg?raw=true",
+        "https://github.com/ChoiRamsey/zinwoos/blob/main/nikedunk6.jpeg?raw=true",
+        "https://github.com/ChoiRamsey/zinwoos/blob/main/nikedunk2.jpeg?raw=true"
+      ]
+    }
+  ]
+}

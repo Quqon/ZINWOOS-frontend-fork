@@ -1,0 +1,65 @@
+@import '../../styles/variable.scss';
+
+.ProductList {
+  padding-top: 60px;
+  color: black;
+
+  .scroll-move {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .move-solt {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .product-move {
+    width: 50%;
+  }
+
+  .product-sort {
+    width: 50%;
+    font-size: 13px;
+    color: rgb(189, 189, 189);
+  }
+
+  .sort {
+    float: right;
+    font-size: 15px;
+  }
+
+  .contents {
+    margin-top: 100px;
+  }
+
+  .contents-wrapper {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  .product-list {
+    border-bottom: 2px solid rgb(230, 230, 230);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+  }
+
+  .move-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 50px 0;
+  }
+
+  .sort-btn {
+    color: $grey-dark-color;
+    background-color: $white-color;
+    border-style: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import '/src/styles/variable.scss';
+
+.Likes {
+  width: 1120px;
+  margin: 0 auto;
+  padding-top: 120px;
+
+  .title-container {
+    display: flex;
+    @include flexSort(space-between, '');
+    margin: 0 0 40px 0;
+
+    .likes-title {
+      margin-left: 20px;
+      color: $green-dark-color;
+      font-size: 60px;
+    }
+
+    .count-likes {
+      margin-top: 40px;
+      font-size: $font-medium;
+    }
+  }
+
+  .like-line {
+    width: 1120px;
+    margin: 40px 0;
+    border: 1px solid $green-dark-color;
+  }
+
+  .likes-item-container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 1120px;
+  }
+}

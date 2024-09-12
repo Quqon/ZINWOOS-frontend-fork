@@ -1,0 +1,114 @@
+.userPaymentAll {
+  padding: 0px;
+  margin: 0 250px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.paymentDetail {
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+.option_thead th{
+  padding: 30px;
+  margin: 100px;
+}
+
+input[name=userInfoInput] {
+  padding: 0;
+  width: 350px;
+}
+
+h1[name=title] {
+  padding-top: 100px;
+  margin: 10px;
+  font-size: 25px;
+}
+
+h1[name=nameH1] {
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+h2[name=nameH2] {
+  padding-top: 10px;
+  font-weight: normal;
+  font-size: 20px;
+  margin: 10px;
+}
+
+h2[name=addressH2] {
+  margin: 10px;
+  font-weight: normal;
+}
+
+h2[name=phoneH2] {
+  margin: 10px;
+  font-weight: normal;
+}
+
+h2[name=quantityH2] {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h2[name=itemNameH2] {
+  margin: 10px;
+}
+
+h3[name=optionH3] {
+  font-weight: normal;
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment h2 {
+  padding-top: 20px;
+  margin: 10px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  align-self: flex-start;
+}
+
+.payment ul {
+  align-self: flex-start;
+  padding-left: 0;
+  margin: 10px;
+}
+
+.payment h3 {
+  align-self: flex-end;
+  border: 1px solid;
+  width: 100%;
+  text-align: right;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 40px;
+  font-weight: normal;
+}
+
+button[name=dropdownButton] {
+  margin-left: 10px;
+}
+
+button[name=pay] {
+  width: 250px;
+  height: 60px;
+  font-size: 25px;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.893);
+  background-color: rgb(1, 54, 1);
+  border: 1px solid rgb(1, 54, 1);
+  justify-content: center;
+}

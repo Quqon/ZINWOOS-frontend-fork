@@ -1,0 +1,214 @@
+.Cart {
+  width: 100%;
+  background-color: #ffffff;
+
+  .container {
+    position: relative;
+    min-height: 100%;
+    margin: 0 auto;
+
+    .content {
+      width: 100%;
+      padding: 60px 0;
+
+      .contents {
+        width: 1120px;
+        margin: 0 auto;
+        position: relative;
+
+        .title {
+          padding: 20px;
+          margin-top: 20px;
+          border-bottom: 1px solid rgb(214, 207, 207);
+
+          h1 {
+            font-size: 60px;
+            letter-spacing: 2px;
+          }
+        }
+        .cart-list {
+          caption {
+            width: 0;
+            height: 0;
+            visibility: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+          }
+
+          table {
+            width: 100%;
+            border-bottom: 1px solid #dbdbdb;
+
+            thead {
+              vertical-align: middle;
+              border-bottom: 1px solid #dbdbdb;
+
+              th {
+                padding: 10px 0;
+
+                input {
+                  width: 15px;
+                  height: 15px;
+                }
+              }
+            }
+
+            tbody {
+              vertical-align: middle;
+              border-top: 1px solid #dbdbdb;
+              border-bottom: 1px solid #dbdbdb;
+
+              .cart-item {
+                border-top: 1px solid #dbdbdb;
+
+                .count-btn {
+                  width: 30px;
+                  height: 30px;
+                  margin: 0 3px;
+                  font-size: 20px;
+                  color: #003628;
+                  background-color: white;
+                }
+
+                .product-info {
+                  display: flex;
+                  vertical-align: center;
+                  // padding-right: 10px;
+
+                  div {
+                    position: relative;
+                    display: flex;
+                    width: 150px;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    div:first-child {
+                      margin-bottom: 5px;
+                      font-size: 18px;
+                    }
+
+                    div:nth-child(2) {
+                      color: gray;
+                      font-size: 14px;
+                    }
+
+                    button {
+                      position: absolute;
+                      left: 400px;
+                      width: 92px;
+                      height: 30px;
+                      background-color: white;
+                    }
+                  }
+                }
+
+                td {
+                  padding: 10px 10px;
+                  text-align: center;
+                  vertical-align: middle;
+
+                  .checkbox {
+                    width: 15px;
+                    height: 15px;
+                  }
+
+                  .number-box {
+                    width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    font-size: 20px;
+                  }
+
+                  input[type='number']::-webkit-outer-spin-button,
+                  input[type='number']::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                  }
+
+                  .number-modify {
+                    width: 50px;
+                    height: 30px;
+                    margin-left: 5px;
+                    background-color: white;
+                  }
+
+                  span {
+                    padding-right: 10px;
+
+                    img {
+                      width: 70px;
+                      height: 70px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .remove-box {
+            margin-top: 20px;
+
+            .remove-btn {
+              width: 114px;
+              height: 30px;
+              background-color: white;
+            }
+          }
+
+          .price-box {
+            ul {
+              height: 160px;
+              margin: 50px 0 0;
+              overflow: hidden;
+
+              li {
+                position: relative;
+                height: 100%;
+                width: 25%;
+                padding: 30px 0;
+                float: left;
+                text-align: center;
+                border: 1px solid #e5e5e5;
+
+                i {
+                  position: absolute;
+                  top: 50%;
+                  left: -25px;
+                  margin-top: -25px;
+                  font-size: 50px;
+                }
+
+                div {
+                  margin-bottom: 20px;
+                }
+              }
+            }
+          }
+        }
+        .complete-btn {
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+
+          button:nth-child(1) {
+            width: 203px;
+            height: 55px;
+            margin: 1px;
+            font-size: 18px;
+            background-color: white;
+          }
+
+          button:nth-child(2) {
+            width: 203px;
+            height: 55px;
+            margin: 1px;
+            font-size: 18px;
+            color: white;
+            background-color: #003628;
+          }
+        }
+      }
+    }
+  }
+}

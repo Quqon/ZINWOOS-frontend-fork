@@ -1,0 +1,54 @@
+@import '../../styles/variable.scss';
+
+.SubNav {
+  display: flex;
+  width: 1080px;
+  margin: 0 0 $padding 15px;
+  color: $grey-dark-color;
+
+  .nav-link {
+    position: relative;
+    width: 140px;
+    text-align: center;
+
+    .fixed-link {
+      width: 100%;
+      padding: 0 0 6px 0;
+      color: $grey-dark-color;
+      background-color: $white-color;
+      border-style: none;
+    }
+
+    .active-link {
+      display: none;
+      text-decoration: none;
+    }
+
+    &.active {
+      .active-links {
+        position: absolute;
+        display: block;
+
+        a {
+          text-decoration: none;
+        }
+
+        .active-link {
+          display: flex;
+          width: 100%;
+          margin-left: calc($padding/2);
+          padding: calc($padding/2);
+          color: $grey-dark-color;
+          background-color: $white-color;
+          border-style: none;
+
+          &:hover {
+            color: $white-color;
+            background-color: $green-dark-color;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

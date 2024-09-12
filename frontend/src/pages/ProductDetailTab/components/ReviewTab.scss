@@ -1,0 +1,57 @@
+@import 'src/styles/variable.scss';
+
+.ReviewTab {
+  @include flexSort(center, '');
+  margin-top: 50px;
+
+  .review-wrap {
+    width: 950px;
+    height: 55vw;
+
+    .review-title-wrap {
+      @include flexSort(space-between, center);
+      padding-top: 30px;
+      margin-bottom: 20px;
+
+      .review-title {
+        font-size: calc($font-large / 2);
+        font-weight: 700;
+      }
+    }
+
+    .review-btn-wrap {
+      line-height: 40px;
+
+      .review-btn-total {
+        width: 150px;
+        height: 40px;
+        background-color: transparent;
+        color: $green-dark-color;
+        font-size: calc($font-micro);
+        border: 1px solid $green-dark-color;
+        cursor: pointer;
+      }
+
+      .review-btn-up {
+        width: 150px;
+        height: 40px;
+        margin-left: 15px;
+        color: $white-color;
+        background-color: $green-dark-color;
+        border: none;
+        cursor: pointer;
+      }
+    }
+
+    .review-tab-line {
+      border: 0.3px solid $grey-color;
+    }
+
+    .reviews {
+      @include flexSort(center, center);
+      margin: 40px 0;
+      color: $grey-dark-color;
+      font-size: $font-micro;
+    }
+  }
+}

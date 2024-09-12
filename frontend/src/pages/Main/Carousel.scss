@@ -1,0 +1,22 @@
+@import '../../styles/variable.scss';
+
+.Carousel {
+  height: 50vw;
+  overflow: hidden;
+
+  .carousel-container {
+    display: flex;
+    margin-top: 60px;
+    width: 100vw;
+    height: 75vw;
+
+    .main-pic {
+      width: 100vw;
+      transform: translate(0, -150px);
+    }
+  }
+
+  .animation {
+    transition: all ease 0.5s;
+  }
+}

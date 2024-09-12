@@ -1,0 +1,34 @@
+{
+  "cartList": [
+    {
+      "cartId": 1,
+      "itemId": 1,
+      "name": "NikeDunkLowPolaroid",
+      "price": "150000.0",
+      "detail_image": "https://github.com/ChoiRamsey/zinwoos/blob/main/nikedunk1.jpeg?raw=true ",
+      "quantity": 1,
+      "checkbox": 1,
+      "option_name": "친필 사인 추가"
+    },
+    {
+      "cartId": 2,
+      "itemId": 2,
+      "name": "NIKEwindbreaker",
+      "price": "99000.0",
+      "detail_image": "https://github.com/ChoiRamsey/zinwoos/blob/main/windbreaker1.jpeg?raw=true ",
+      "quantity": 6,
+      "checkbox": 1,
+      "option_name": null
+    },
+    {
+      "cartId": 3,
+      "itemId": 3,
+      "name": "GarminForerunner245",
+      "price": "199000.0",
+      "detail_image": "https://github.com/ChoiRamsey/zinwoos/blob/main/garminwatch3.jpeg?raw=true ",
+      "quantity": 1,
+      "checkbox": 1,
+      "option_name": "친필 사인 추가"
+    }
+  ]
+}

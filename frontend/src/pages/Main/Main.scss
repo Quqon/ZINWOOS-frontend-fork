@@ -1,0 +1,45 @@
+@import '../../styles/variable.scss';
+
+.Main {
+  .main-title {
+    @include flexSort(center, center);
+    margin-top: 100px;
+    color: $green-dark-color;
+    font-size: $font-large;
+    font-weight: 700;
+  }
+
+  .main-content {
+    margin: 60px 0 100px 0;
+    color: $green-dark-color;
+    font-size: $font-medium;
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .main-youtube {
+    @include flexSort(center, center);
+  }
+
+  .main-ul {
+    @include flexSort(center, center);
+    margin-bottom: 30px;
+    padding: 100px;
+
+    .main-li {
+      width: 900px;
+
+      &:not(:last-child) {
+        border-right: 1px solid $grey-color;
+      }
+
+      p {
+        font-size: $font-medium;
+        font-weight: 300;
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+  }
+}

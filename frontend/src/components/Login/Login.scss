@@ -1,0 +1,106 @@
+@import '../../styles/variable.scss';
+
+.Login {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+
+  .login-box {
+    width: 500px;
+    height: 604px;
+    padding: 30px;
+    background-color: $white-color;
+    text-align: center;
+    z-index: 10001;
+
+    .close-btn {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 20px;
+        background-color: transparent;
+        font-style: none;
+        font-size: 20px;
+        border: none;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .login-logo {
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 40px;
+      font-size: $font-small;
+      font-weight: 300;
+    }
+
+    form {
+      width: 100%;
+
+      .input-container {
+        width: 100%;
+        height: 250px;
+        margin-bottom: 20px;
+
+        input {
+          width: 330px;
+          height: 40px;
+          margin-bottom: 10px;
+          padding: 5px 10px;
+          border-radius: 4px;
+          font-size: 15px;
+          border-color: $grey-dark-color;
+
+          &:focus {
+            background-color: transparent;
+            outline-color: orange;
+          }
+        }
+      }
+
+      button {
+        width: 200px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        font-size: $font-small;
+        background-color: $green-dark-color;
+        color: $white-color;
+        border: none;
+
+        &:disabled {
+          background-color: $grey-color;
+          color: $white-color;
+        }
+      }
+    }
+
+    .change-input-type {
+      color: $green-dark-color;
+
+      &:hover {
+        color: orange;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// @media screen and (max-width: 700px) {
+//   .Login {
+//     width: 700px;
+//   }
+// }

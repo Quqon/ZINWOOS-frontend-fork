@@ -1,0 +1,23 @@
+@import '../../styles/variable.scss';
+
+.CarouselButton {
+  border: none;
+  color: $white-color;
+  background-color: transparent;
+  opacity: 0.35;
+  font-size: 120px;
+  cursor: pointer;
+}
+
+.btn-prev {
+  position: absolute;
+  top: 25vw;
+  left: 10px;
+  transform: rotate(0.5turn);
+}
+
+.btn-next {
+  position: absolute;
+  top: 25vw;
+  right: 10px;
+}

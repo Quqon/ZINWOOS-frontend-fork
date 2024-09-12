@@ -1,0 +1,14 @@
+@import '/src/styles/variable.scss';
+
+.LikeNull {
+  width: 1120px;
+
+  .like-line {
+    margin-bottom: 30px;
+    border: 1px solid $green-dark-color;
+  }
+  .empty-like {
+    @include flexSort(center, '');
+    font-size: $font-small;
+  }
+}

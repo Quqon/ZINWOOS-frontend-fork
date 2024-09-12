@@ -1,0 +1,54 @@
+@import '../../styles/variable.scss';
+
+.NewItem {
+  width: 100vw;
+  height: auto;
+  padding: 100px 50px;
+  background-color: $grey-color;
+
+  .New-sub-title {
+    color: $green-dark-color;
+    font-family: 'Noto Serif Georgian', serif;
+    font-size: $font-large;
+    font-weight: 700;
+  }
+
+  .New-sub-content {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    color: $green-dark-color;
+    font-size: calc($font-medium * 1.4);
+    font-weight: 100;
+  }
+
+  .New-product-wrap {
+    display: flex;
+    overflow: scroll;
+
+    .New-product {
+      margin-right: 30px;
+
+      .New-product-image {
+        width: 500px;
+        height: 500px;
+        margin-bottom: 30px;
+        overflow: hidden;
+
+        .product-image {
+          height: 100%;
+        }
+      }
+      .New-product-title {
+        margin-bottom: 20px;
+        font-size: $font-medium;
+        font-weight: 800;
+      }
+
+      .New-product-content {
+        margin-bottom: 50px;
+        font-size: $font-small;
+        font-weight: 100;
+      }
+    }
+  }
+}

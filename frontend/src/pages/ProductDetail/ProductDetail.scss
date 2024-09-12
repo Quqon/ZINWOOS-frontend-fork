@@ -1,0 +1,55 @@
+@import '../../styles/variable.scss';
+
+.ProductDetail {
+  @include flexSort(flex-start, center);
+  flex-direction: column;
+  padding: calc($padding * 3) calc($padding * 3) 150px calc($padding * 3);
+  background-color: $green-light-color;
+
+  .product-wrap {
+    width: 1080px;
+    padding: calc($padding * 4) calc($padding * 2) 0 calc($padding * 2);
+    margin-top: calc($padding * 8);
+    background-color: $white-color;
+    border-radius: 3px;
+  }
+
+  .product {
+    @include flexSort(center, flex-start);
+    padding: calc($padding * 2);
+
+    &-item {
+      display: flex;
+
+      &-contents {
+        padding: 0 0 0 calc($padding * 2);
+
+        &-title {
+          color: $green-dark-color;
+          font-size: calc($font-small * 2);
+          font-weight: bold;
+        }
+
+        &-info {
+          width: 420px;
+          padding: $padding 0 calc($padding * 2) 0;
+          color: $grey-dark-color;
+          border-bottom: 1px solid $grey-color;
+          font-size: calc($font-micro + 2px);
+          line-height: 22px;
+        }
+
+        &-ship {
+          margin: 40px 0 53px 0;
+          color: $grey-dark-color;
+          font-size: $font-micro;
+          line-height: 20px;
+
+          li {
+            margin-right: $padding;
+          }
+        }
+      }
+    }
+  }
+}

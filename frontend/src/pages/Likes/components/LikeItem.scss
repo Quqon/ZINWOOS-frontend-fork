@@ -1,0 +1,52 @@
+@import '/src/styles/variable.scss';
+
+.LikeItem {
+  .like-out-btn {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    color: $white-color;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+    z-index: 100;
+    cursor: pointer;
+  }
+
+  .LikeItem-wrap {
+    margin-bottom: 40px;
+
+    &:not(:nth-child(4n)) {
+      margin-right: 17px;
+    }
+
+    .img-container {
+      position: relative;
+      width: calc(1120px / 4.2);
+      height: calc(1120px / 4.2);
+      margin-bottom: 15px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .likes-item-link {
+      text-decoration: none;
+      color: black;
+
+      .likes-item-name {
+        margin-bottom: 10px;
+        font-size: calc($font-small);
+        font-weight: 700;
+      }
+
+      .like-item-price {
+        font-size: calc($font-medium * 1.3);
+      }
+    }
+  }
+}

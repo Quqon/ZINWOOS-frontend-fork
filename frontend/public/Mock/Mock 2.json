@@ -1,0 +1,30 @@
+[
+  {
+    "detail": "abc",
+    "detail_image": "https://cdn.pixabay.com/photo/2022/07/06/13/10/vintage-car-7305109_1280.jpg",
+    "name": "가나다라",
+    "price": "10,000원",
+    "tags_name": ["new", "sold out"]
+  },
+  {
+    "detail": "def",
+    "detail_image": "https://cdn.pixabay.com/photo/2022/07/06/13/10/vintage-car-7305109_1280.jpg",
+    "name": "가나다",
+    "price": "20,000원",
+    "tags_name": ["new", "sold out"]
+  },
+  {
+    "detail": "ghi",
+    "detail_image": "https://cdn.pixabay.com/photo/2022/07/06/13/10/vintage-car-7305109_1280.jpg",
+    "name": "가나",
+    "price": "30,000원",
+    "tags_name": ["new", "sold out"]
+  },
+  {
+    "detail": "jkl",
+    "detail_image": "https://cdn.pixabay.com/photo/2022/07/06/13/10/vintage-car-7305109_1280.jpg",
+    "name": "가",
+    "price": "40,000원",
+    "tags_name": ["new", "sold out"]
+  }
+]
