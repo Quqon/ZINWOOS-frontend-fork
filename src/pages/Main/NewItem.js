@@ -11,12 +11,12 @@ const NewItem = ({ itemData }) => {
       <div className="New-product-wrap">
         {itemData.map(item => {
           return (
-            <Link to={`./product_detail/${item.id}`}> 
+            <Link to={`./product_detail/${item.id}`}>
               <div key={item.id} className="New-product">
                 <div className="New-product-image">
                   <img
                     className="product-image"
-                    src={`http://127.0.0.1:3000${item.detail_image}`}
+                    src={`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app${item.detail_image}`}
                     alt={item.description}
                   />
                 </div>

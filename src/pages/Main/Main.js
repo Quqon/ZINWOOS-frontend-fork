@@ -35,17 +35,17 @@ const Main = () => {
   const [newList, setNewList] = useState([]);
 
   useEffect(() => {
-        fetch('http://127.0.0.1:3000/', {
-          method: 'GET',
-          credentials: 'include'
-        })
-        .then(response => response.json())
-        .then(data => {
-          const sessionId = data.sessionId;
-          sessionStorage.setItem('sessionId', sessionId);
-        })
+    fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/', {
+      method: 'GET',
+      credentials: 'include'
+    })
+      .then(response => response.json())
+      .then(data => {
+        const sessionId = data.sessionId;
+        sessionStorage.setItem('sessionId', sessionId);
+      })
 
-    }, [])
+  }, [])
 
   useEffect(() => {
     const token = getToken();
@@ -56,7 +56,7 @@ const Main = () => {
   }, [])
 
   useEffect(() => {
-    fetch('http://127.0.0.1:3000/items/new')
+    fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/items/new')
       .then(response => response.json())
       .then(result => {
         setNewList(result.data);

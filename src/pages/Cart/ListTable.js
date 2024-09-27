@@ -36,7 +36,7 @@ const ListTable = ({ cartList, setCartList }) => {
       .map(item => item.id);
 
     const response = await fetch(
-      `http://127.0.0.1:3000/carts?cartId=${deleteItemIds.join('&cartId=')}`,
+      `https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/carts?cartId=${deleteItemIds.join('&cartId=')}`,
       {
         method: 'DELETE',
         headers: {
@@ -50,7 +50,7 @@ const ListTable = ({ cartList, setCartList }) => {
 
     if (data.message === 'DELETE_SUCCESS') {
       const response = await fetch(
-        'http://127.0.0.1:3000/carts?limit=50&offset=0',
+        'https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/carts?limit=50&offset=0',
         { headers: { Authorization: localStorage.getItem('token') } }
       );
       const newData = await response.json();
@@ -65,12 +65,11 @@ const ListTable = ({ cartList, setCartList }) => {
           event.target.innerHTML === '+'
             ? item.quantity + 1
             : item.quantity > 1
-            ? item.quantity - 1
-            : item.quantity;
+              ? item.quantity - 1
+              : item.quantity;
 
         await fetch(
-          `http://127.0.0.1:3000/carts/${
-            event.target.innerHTML === '+' ? 'plus' : 'minus'
+          `https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/carts/${event.target.innerHTML === '+' ? 'plus' : 'minus'
           }`,
           {
             method: 'PATCH',
@@ -78,7 +77,7 @@ const ListTable = ({ cartList, setCartList }) => {
               'Content-Type': 'application/json;charset=utf-8',
               Authorization: localStorage.getItem('token'),
             },
-            body: JSON.stringify({ cartId: item.id, quantity :newQuantity }),
+            body: JSON.stringify({ cartId: item.id, quantity: newQuantity }),
           }
         ).catch(() => alert('서버와의 통신이 원활하지 않습니다.'));
 
@@ -99,62 +98,63 @@ const ListTable = ({ cartList, setCartList }) => {
     });
     setCartList(updatedCartList);
   };
-  
+
   const cartItems = cartList.map((item, i) => {
     return (
-    <tr key={String(item.Item.id) + (item.Option ? item.Option.name : '')} className="cart-item">
-      <td>
-        <input
-          name={String(item.Item.id) + (item.Option ? item.Option.name : '')}
-          className="checkbox"
-          type="checkbox"
-          checked={item.checkbox}
-          onChange={handleCheckbox}
-        />
-      </td>
-      <td className="product-info">
-        <span>
-          <Link to="">
-            <img
-              src={`http://127.0.0.1:3000${item.Item.detail_image}`}
-              alt="제품사진"
-            />
-          </Link>
-        </span>
-        <div>
-          <div>{item.Item.name}</div>
-          {item.Option && <div>{`옵션: ${item.Option.name}`}</div>}
-        </div>
-      </td>
-      <td>
-        <button
-          name={item.id}
-          onClick={setQuantitiy}
-          className="count-btn"
-        >
-          -
-        </button>
-        <input
-          name={item.id}
-          className="number-box"
-          type="number"
-          value={item.quantity}
-          onChange={handleInput}
-        />
-        <button
-          name={item.id}
-          onClick={setQuantitiy}
-          className="count-btn"
-        >
-          +
-        </button>
-      </td>
-      <td>{`${parseInt(Number(item.Item.price) + (item?.Option ? 30000 : 0)).toLocaleString()}원`}</td>
-      <td>지누쓰마음</td>
-      <td>무료배송</td>
-      <td>{`${(item.quantity * (Number(item.Item.price) + (item?.Option ? 30000 : 0))).toLocaleString()}원`}</td>
-    </tr>
-  )});
+      <tr key={String(item.Item.id) + (item.Option ? item.Option.name : '')} className="cart-item">
+        <td>
+          <input
+            name={String(item.Item.id) + (item.Option ? item.Option.name : '')}
+            className="checkbox"
+            type="checkbox"
+            checked={item.checkbox}
+            onChange={handleCheckbox}
+          />
+        </td>
+        <td className="product-info">
+          <span>
+            <Link to="">
+              <img
+                src={`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app${item.Item.detail_image}`}
+                alt="제품사진"
+              />
+            </Link>
+          </span>
+          <div>
+            <div>{item.Item.name}</div>
+            {item.Option && <div>{`옵션: ${item.Option.name}`}</div>}
+          </div>
+        </td>
+        <td>
+          <button
+            name={item.id}
+            onClick={setQuantitiy}
+            className="count-btn"
+          >
+            -
+          </button>
+          <input
+            name={item.id}
+            className="number-box"
+            type="number"
+            value={item.quantity}
+            onChange={handleInput}
+          />
+          <button
+            name={item.id}
+            onClick={setQuantitiy}
+            className="count-btn"
+          >
+            +
+          </button>
+        </td>
+        <td>{`${parseInt(Number(item.Item.price) + (item?.Option ? 30000 : 0)).toLocaleString()}원`}</td>
+        <td>지누쓰마음</td>
+        <td>무료배송</td>
+        <td>{`${(item.quantity * (Number(item.Item.price) + (item?.Option ? 30000 : 0))).toLocaleString()}원`}</td>
+      </tr>
+    )
+  });
 
   return (
     <>

@@ -14,7 +14,7 @@ const ProductImage = ({ product }) => {
     <div className="ProductImage">
       <div className="thumb">
         <Link key={name} to={`/product_detail/${id}`}>
-          <img src={`http://127.0.0.1:3000${detail_image}`} alt={name} className="model" />
+          <img src={`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app${detail_image}`} alt={name} className="model" />
         </Link>
       </div>
       <div className="product-name">{name}</div>

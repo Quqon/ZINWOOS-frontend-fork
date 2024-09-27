@@ -8,7 +8,7 @@ const DetailTab = ({ product }) => {
         <div className="detail-main-img-wrap">
           <img
             className="detail-main-img"
-            src={`http://127.0.0.1:3000${product.detail_image}`}
+            src={`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app${product.detail_image}`}
             alt="메인 상세 사진"
           />
           <div className="detail-main-contents">

@@ -39,7 +39,7 @@ const AdminPage = () => {
       return;
     }
 
-    fetch('http://127.0.0.1:3000/users/admin', {
+    fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/users/admin', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -119,7 +119,7 @@ const AdminPage = () => {
     formData.append('inputItemStock', inputItemStock);
 
     try {
-      const response = await fetch('http://127.0.0.1:3000/files/itemUpload', {
+      const response = await fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/files/itemUpload', {
         method: 'POST',
         body: formData
       });
@@ -150,7 +150,7 @@ const AdminPage = () => {
     console.log(formData.deleteItemName, 'formData')
 
     try {
-      const response = await fetch(`http://127.0.0.1:3000/items/${deleteItemName}`, {
+      const response = await fetch(`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/items/${deleteItemName}`, {
         method: 'DELETE',
       })
 
@@ -210,7 +210,7 @@ const AdminPage = () => {
     };
 
     try {
-      const response = await axios.put(`http://127.0.0.1:3000/items/${updateName}`, null, {
+      const response = await axios.put(`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/items/${updateName}`, null, {
         params: params,
       })
       console.log(response, 'response')

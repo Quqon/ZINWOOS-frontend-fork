@@ -37,7 +37,7 @@ const Login = ({ modalLogin, setShowLogin }) => {
 
   const handleLogin = e => {
     e.preventDefault();
-    fetch('http://127.0.0.1:3000/users/signin', {
+    fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/users/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
       body: JSON.stringify({
@@ -58,7 +58,7 @@ const Login = ({ modalLogin, setShowLogin }) => {
           setShowLogin(false);
           localStorage.setItem('adminAccessToken', data.adminAccessToken);
           navigate('/users/admin');
-        } 
+        }
         else if (data.message === 'INVALID_USER') {
           alert('등록되지 않은 사용자입니다.');
         }
@@ -69,7 +69,7 @@ const Login = ({ modalLogin, setShowLogin }) => {
     e.preventDefault();
     // eslint-disable-next-line
     console.log('Sign up button clicked');
-    fetch('http://127.0.0.1:3000/users/signup', {
+    fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/users/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
       body: JSON.stringify({

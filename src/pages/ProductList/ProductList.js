@@ -12,10 +12,10 @@ const ProductList = () => {
   const mainId = params;
 
   useEffect(() => {
-      fetch(
-        `http://127.0.0.1:3000/items/${mainId.id}?${mainId.id2}&sort=${sort}&order=${order ? 'ASC' : 'DESC'}&limit=100&offset=0`
-      )
-      
+    fetch(
+      `https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/items/${mainId.id}?${mainId.id2}&sort=${sort}&order=${order ? 'ASC' : 'DESC'}&limit=100&offset=0`
+    )
+
       .then(res => res.json())
       .then(data => {
         console.log(data, 'data')

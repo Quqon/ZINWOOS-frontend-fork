@@ -9,7 +9,7 @@ const Likes = () => {
 
   useEffect(
     () => {
-      fetch('http://127.0.0.1:3000/likes', {
+      fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/likes', {
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
           Authorization: token,
@@ -18,7 +18,8 @@ const Likes = () => {
         .then(res => res.json())
         .then(result => {
           console.log(result.data, 'resultData')
-          setLikeList(result.data)});
+          setLikeList(result.data)
+        });
     },
     // eslint-disable-next-line
     []
@@ -26,7 +27,7 @@ const Likes = () => {
 
   // 삭제 버튼
   const deleteBtn = async (id) => {
-    const response = await fetch(`http://127.0.0.1:3000/likes/${id}`, {
+    const response = await fetch(`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/likes/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -36,7 +37,7 @@ const Likes = () => {
 
     if (response.status === 204) {
       alert('관심상품에서 삭제했습니다');
-      fetch(`http://127.0.0.1:3000/likes/`, {
+      fetch(`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/likes/`, {
         headers: {
           Authorization: token,
         },

@@ -18,7 +18,7 @@ const LikeItem = ({ deleteBtn, likeData }) => {
 
       <div className="LikeItem-wrap">
         <div className="img-container">
-          <img src={`http://127.0.0.1:3000${detail_image}`} alt="관심상품 이미지" />
+          <img src={`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app${detail_image}`} alt="관심상품 이미지" />
         </div>
         <Link className="likes-item-link" to={`/product_detail/${id}`}>
           <h2 className="likes-item-name">{name}</h2>

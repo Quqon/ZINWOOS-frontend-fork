@@ -17,12 +17,12 @@ const NonCart = () => {
 
 
   useEffect(() => {
-    fetch('http://127.0.0.1:3000/carts/non', {
+    fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/carts/non', {
       headers: { Authorization: sessionId },
       credentials: 'include'
     })
-    .then(response => response.json())
-    .then(data => setCartList(data.cart))
+      .then(response => response.json())
+      .then(data => setCartList(data.cart))
   }, [])
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const NonCart = () => {
       setCartList(result);
     }
   }, [result])
-  
+
 
   useEffect(() => {
     const copy = [...(cartList.cartList || [])];
@@ -48,7 +48,7 @@ const NonCart = () => {
 
   const submitOrder = async () => {
     const orderList = cartList.filter(item => item.checkbox === 1);
-    const response = await fetch(`http://127.0.0.1:3000/orders`, {
+    const response = await fetch(`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -61,7 +61,7 @@ const NonCart = () => {
 
     if (response.status === 200) {
       alert('주문성공');
-      const response = await fetch('http://127.0.0.1:3000/orders', {
+      const response = await fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/orders', {
         headers: {
           Authorization: localStorage.getItem('token'),
         },

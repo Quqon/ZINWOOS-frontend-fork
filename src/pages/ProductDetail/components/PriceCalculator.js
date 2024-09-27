@@ -25,7 +25,7 @@ const PriceCalculator = ({
     const setTokenHandler = () => {
       setToken(localStorage.getItem('token') || localStorage.getItem('adminAccessToken'));
     };
-    
+
     window.addEventListener('storage', setTokenHandler);
 
     return () => {
@@ -46,7 +46,7 @@ const PriceCalculator = ({
   const paymentHandler = async () => {
     if (token) {
       try {
-        const response = await fetch('http://127.0.0.1:3000/payment', {
+        const response = await fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/payment', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json;charset=utf-8',
@@ -62,14 +62,14 @@ const PriceCalculator = ({
         console.error('Error: ', error);
       }
     } else {
-      navigate('/payment', { state: { itemName, price, optionPrice, totalPrice, quantity, detail_image }});
+      navigate('/payment', { state: { itemName, price, optionPrice, totalPrice, quantity, detail_image } });
     }
   };
 
-  const addCartHandler = async() => {
+  const addCartHandler = async () => {
     try {
       if (token) {
-        fetch('http://127.0.0.1:3000/carts', {
+        fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/carts', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json;charset=utf-8',
@@ -86,7 +86,7 @@ const PriceCalculator = ({
           }
         });
       } else {
-        fetch('http://127.0.0.1:3000/carts/add', {
+        fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/carts/add', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -104,18 +104,18 @@ const PriceCalculator = ({
             price: price
           })
         })
-        .then(response => {
-          if (response.status === 200) {
-            alert('장바구니에 상품이 담겼습니다!');
-            return response.json();
-          } else {
-            throw new Error(`Error: ${response.statusText}`);
-          }
-        })
-        .then(data => {
-          const result = data.cart;
-          navigate('/nonCarts', { state: { result }})
-        })
+          .then(response => {
+            if (response.status === 200) {
+              alert('장바구니에 상품이 담겼습니다!');
+              return response.json();
+            } else {
+              throw new Error(`Error: ${response.statusText}`);
+            }
+          })
+          .then(data => {
+            const result = data.cart;
+            navigate('/nonCarts', { state: { result } })
+          })
 
       }
     } catch (error) {
@@ -127,7 +127,7 @@ const PriceCalculator = ({
     e.preventDefault();
     if (token) {
       setWishList(!wishList);
-      fetch('http://127.0.0.1:3000/likes', {
+      fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/likes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -177,7 +177,7 @@ const PriceCalculator = ({
         <div className="total-price">{`${totalPrice.toLocaleString()} 원`}</div>
       </div>
       <form className="product-item-contents-buttons">
-        <input className="payment-button" type="button" value="결제하기" onClick={paymentHandler}/>
+        <input className="payment-button" type="button" value="결제하기" onClick={paymentHandler} />
         <input
           className="cart-button"
           type="button"

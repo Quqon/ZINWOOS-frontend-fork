@@ -21,7 +21,7 @@ const ProductDetail = () => {
   } = product;
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/items/${productId}`)
+    fetch(`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/items/${productId}`)
       .then(response => response.json())
       .then(result => {
         setProduct(result.data[0]);
@@ -37,7 +37,7 @@ const ProductDetail = () => {
         />
         <div className="product">
           <article className="product-item">
-            {detail_image && <ProductImg img={`http://127.0.0.1:3000${detail_image}`} alt={name} />}
+            {detail_image && <ProductImg img={`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app${detail_image}`} alt={name} />}
             <div className="product-item-contents">
               <h1 className="product-item-contents-title">{name}</h1>
               <p className="product-item-contents-info">{description}</p>

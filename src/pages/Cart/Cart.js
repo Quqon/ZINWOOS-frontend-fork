@@ -10,21 +10,21 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [shipFee, setShipFee] = useState(3000);
   const location = useLocation();
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         let response;
 
         if (token) {
-          response = await fetch('http://127.0.0.1:3000/carts?limit=50&offset=0', {
+          response = await fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/carts?limit=50&offset=0', {
             headers: { Authorization: token },
           })
         }
 
         const data = await response.json();
         setCartList(data.cartList)
-        
+
       } catch (error) {
         console.error('Error fetching cart data:', error);
       }
@@ -49,7 +49,7 @@ const Cart = () => {
 
   const submitOrder = async () => {
     const orderList = cartList.filter(item => item.checkbox === 1);
-    const response = await fetch(`http://127.0.0.1:3000/orders`, {
+    const response = await fetch(`https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -62,7 +62,7 @@ const Cart = () => {
 
     if (response.status === 200) {
       alert('주문성공');
-      const response = await fetch('http://127.0.0.1:3000/orders', {
+      const response = await fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/orders', {
         headers: {
           Authorization: localStorage.getItem('token'),
         },
