@@ -35,7 +35,8 @@ const Main = () => {
   const [newList, setNewList] = useState([]);
 
   useEffect(() => {
-    fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/', {
+    // fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/', {
+    fetch('http://1.245.156.117:3000/', {
       method: 'GET',
       credentials: 'include'
     })
@@ -57,7 +58,8 @@ const Main = () => {
   }, [])
 
   useEffect(() => {
-    fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/items/new')
+    // fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/items/new')
+    fetch('http://1.245.156.117:3000/items/new')
       .then(response => response.json())
       .then(result => {
         setNewList(result.data);
