@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './NewItem.scss';
 
 const NewItem = ({ itemData }) => {
+  console.log(itemData, 'itemData')
   return (
     <section className="NewItem">
       <h1 className="New-sub-title">ZINWOOS New Product</h1>

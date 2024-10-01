@@ -41,6 +41,7 @@ const Main = () => {
     })
       .then(response => response.json())
       .then(data => {
+        console.log(data, 'data');
         const sessionId = data.sessionId;
         sessionStorage.setItem('sessionId', sessionId);
       })
