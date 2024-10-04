@@ -29,6 +29,7 @@ const AdminPage = () => {
   const [updateItemDetail, setUpdateItemDetail] = useState('');
   const [updateItemMaxAmount, setUpdateItemMaxAmount] = useState('');
   const [updateItemStock, setUpdateItemStock] = useState('');
+  const [updateItemFile, setUpdateItemFile] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem('adminAccessToken');
@@ -197,6 +198,10 @@ const AdminPage = () => {
     setUpdateItemStock(event.target.value);
   }
 
+  const handleUpdateItemFileChange = (event) => {
+    setUpdateItemFile(event.target.files[0]);
+  }
+
   const updateItem = async (event) => {
     event.preventDefault();
 
@@ -207,6 +212,7 @@ const AdminPage = () => {
       updateItemDetail,
       updateItemMaxAmount,
       updateItemStock,
+      updateItemFile
     };
 
     try {
@@ -286,7 +292,7 @@ const AdminPage = () => {
           <input value={updateItemMaxAmount} onChange={handleUpdateItemMaxAmount}></input>
           <h2>stock</h2>
           <input value={updateItemStock} onChange={handleUpdateItemStock}></input>
-          <input name="itemSubmit" type="file" onChange={handleItemFileChange} />
+          <input name="itemSubmit" type="file" onChange={handleUpdateItemFileChange} />
           <button name="updateButton" type="submit">Update</button>
         </form>
       </fragment>
