@@ -5,7 +5,7 @@ import './Likes.scss';
 
 const Likes = () => {
   const [likeList, setLikeList] = useState([]);
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token') || localStorage.getItem('adminAccessToken');
 
   useEffect(
     () => {
