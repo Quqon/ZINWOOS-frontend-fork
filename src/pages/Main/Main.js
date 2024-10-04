@@ -46,7 +46,7 @@ const Main = () => {
         sessionStorage.setItem('sessionId', sessionId);
       })
 
-  }, [])
+  }, [sessionId])
 
   useEffect(() => {
     const token = getToken();
