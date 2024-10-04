@@ -38,6 +38,7 @@ const Cart = () => {
     const buyList = copy.filter(item => Boolean(item.checkbox));
 
     let price = 0;
+    console.log(buyList, 'buyList')
     buyList.forEach(item => {
       price += item.quantity * (Number(item.Item.price) + (item?.Option ? 30000 : 0));
     });
