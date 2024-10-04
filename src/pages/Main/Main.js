@@ -5,8 +5,6 @@ import './Main.scss';
 import { jwtDecode } from 'jwt-decode';
 import { DateTime } from 'luxon';
 
-let sessionId;
-
 const getToken = () => {
   const token = localStorage.getItem('token');
   if (!token) {
@@ -37,18 +35,24 @@ const Main = () => {
   const [newList, setNewList] = useState([]);
 
   useEffect(() => {
-    fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/', {
-      method: 'GET',
-      credentials: 'include'
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data, 'data');
-        sessionId = data.sessionId;
-        sessionStorage.setItem('sessionId', sessionId);
-      })
+    const sessionIdExisted = sessionStorage.getItem('sessionId');
 
-  }, [sessionId])
+    if (!sessionIdExisted) {
+      fetch('https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/', {
+        method: 'GET',
+        credentials: 'include'
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data, 'data');
+          const sessionId = data.sessionId;
+          sessionStorage.setItem('sessionId', sessionId);
+        })
+    } else {
+      console.log('sessionId already exists');
+    }
+
+  }, [])
 
   useEffect(() => {
     const token = getToken();
