@@ -26,7 +26,7 @@ const Nav = () => {
     setShowLogin(!showLogin);
   };
   const likeProduct = () => {
-    if (localStorage.getItem('token') || localStorage.getItem('accessAccessToken')) {
+    if (localStorage.getItem('token') || localStorage.getItem('adminAccessToken')) {
       navigate("/likes");
     } else {
       alert('로그인이 필요한 요청입니다.');
@@ -69,12 +69,12 @@ const Nav = () => {
           </Link>
           {localStorage.getItem('token') || localStorage.getItem('adminAccessToken') ? (
             <Link to="/carts">
-            <div>장바구니</div>
-          </Link>
+              <div>장바구니</div>
+            </Link>
           ) : (
             <Link to="/nonCarts">
-            <div>장바구니</div>
-          </Link>
+              <div>장바구니</div>
+            </Link>
           )}
         </div>
       </div>
