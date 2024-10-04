@@ -5,6 +5,8 @@ import './Main.scss';
 import { jwtDecode } from 'jwt-decode';
 import { DateTime } from 'luxon';
 
+let sessionId;
+
 const getToken = () => {
   const token = localStorage.getItem('token');
   if (!token) {
@@ -42,7 +44,7 @@ const Main = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data, 'data');
-        const sessionId = data.sessionId;
+        sessionId = data.sessionId;
         sessionStorage.setItem('sessionId', sessionId);
       })
 
