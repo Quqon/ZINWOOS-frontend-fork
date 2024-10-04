@@ -286,6 +286,7 @@ const AdminPage = () => {
           <input value={updateItemMaxAmount} onChange={handleUpdateItemMaxAmount}></input>
           <h2>stock</h2>
           <input value={updateItemStock} onChange={handleUpdateItemStock}></input>
+          <input name="itemSubmit" type="file" onChange={handleItemFileChange} />
           <button name="updateButton" type="submit">Update</button>
         </form>
       </fragment>
