@@ -23,7 +23,9 @@ const Cart = () => {
         }
 
         const data = await response.json();
-        console.log(data, 'data.cartList')
+        console.log(data.cartList, 'data.cartList')
+        console.log(data[0], 'data[0]')
+        console.log(data.cartList[0], 'data.cartList[0]')
         setCartList(data.cartList)
 
       } catch (error) {
