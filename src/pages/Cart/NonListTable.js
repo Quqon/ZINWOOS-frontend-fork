@@ -63,7 +63,7 @@ const NonListTable = ({ cartList, setCartList }) => {
     const data = await response.json();
 
     if (data.message === 'DELETE_SUCCESS') {
-      setCartList(data.cartList);
+      setCartList(data.cartList || []);
     }
   };
 
