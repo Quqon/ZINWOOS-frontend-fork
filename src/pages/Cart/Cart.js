@@ -35,7 +35,9 @@ const Cart = () => {
   }, [token]);
 
   useEffect(() => {
+    console.log(cartList, 'rcartList')
     const copy = [...(cartList.cartList || [])];
+    console.log(copy, 'copy')
     const buyList = copy.filter(item => Boolean(item.checkbox));
 
     let price = 0;
