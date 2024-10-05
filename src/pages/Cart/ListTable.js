@@ -41,7 +41,7 @@ const ListTable = ({ cartList, setCartList }) => {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
-          Authorization: localStorage.getItem('token'),
+          Authorization: localStorage.getItem('token') || localStorage.getItem('adminAccessToken'),
         },
       }
     );
@@ -51,7 +51,7 @@ const ListTable = ({ cartList, setCartList }) => {
     if (data.message === 'DELETE_SUCCESS') {
       const response = await fetch(
         'https://port-0-zinwoos-backend-fork-m1kb43jnab9bc7ab.sel4.cloudtype.app/carts?limit=50&offset=0',
-        { headers: { Authorization: localStorage.getItem('token') } }
+        { headers: { Authorization: localStorage.getItem('token') || localStorage.getItem('adminAccessToken') } }
       );
       const newData = await response.json();
       setCartList(newData.cartList);
