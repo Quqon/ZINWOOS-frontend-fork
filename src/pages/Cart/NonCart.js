@@ -33,7 +33,7 @@ const NonCart = () => {
 
 
   useEffect(() => {
-    const copy = [...(cartList.cartList || [])];
+    const copy = [...(cartList || [])];
     const buyList = copy.filter(item => Boolean(item.checkbox));
 
     let price = 0;

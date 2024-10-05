@@ -23,8 +23,6 @@ const Cart = () => {
         }
 
         const data = await response.json();
-        console.log(data, 'data.cartList')
-        console.log(data.cartList[0], 'data.cartList[0]')
         setCartList(data.cartList)
 
       } catch (error) {
@@ -36,13 +34,10 @@ const Cart = () => {
   }, [token]);
 
   useEffect(() => {
-    console.log(cartList, 'rcartList')
     const copy = [...(cartList || [])];
-    console.log(copy, 'copy')
     const buyList = copy.filter(item => Boolean(item.checkbox));
 
     let price = 0;
-    console.log(buyList, 'buyList')
     buyList.forEach(item => {
       price += item.quantity * (Number(item.Item.price) + (item?.Option ? 30000 : 0));
     });
