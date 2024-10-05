@@ -24,9 +24,8 @@ const Cart = () => {
 
         const data = await response.json();
         console.log(data.cartList, 'data.cartList')
-        console.log(data[0], 'data[0]')
         console.log(data.cartList[0], 'data.cartList[0]')
-        setCartList(data.cartList)
+        setCartList(data.cartList[0])
 
       } catch (error) {
         console.error('Error fetching cart data:', error);
@@ -38,7 +37,7 @@ const Cart = () => {
 
   useEffect(() => {
     console.log(cartList, 'rcartList')
-    const copy = [...(cartList.cartList || [])];
+    const copy = [...(cartList || [])];
     console.log(copy, 'copy')
     const buyList = copy.filter(item => Boolean(item.checkbox));
 
